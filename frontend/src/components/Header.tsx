@@ -141,6 +141,9 @@ const dispatch = useDispatch()
                     @media (min-width: 640px) {
                       display: block;
                     }
+                    @media (max-width: 979px) {
+                      display: none;
+                    }
                   `}
                 >
                   Home
@@ -173,6 +176,7 @@ const dispatch = useDispatch()
                   display: flex;
                   align-items: center;
                   text-decoration: none;
+                  padding-left: 12px;
                   border: #020008;
                   border-radius: 6px;
                   @media (min-width: 640px) {
@@ -202,6 +206,9 @@ const dispatch = useDispatch()
                     dispaly: hidden;
                     @media (min-width: 640px) {
                       display: block;
+                    }
+                    @media (max-width: 979px) {
+                      display: none;
                     }
                   `}
                 >
@@ -234,6 +241,7 @@ const dispatch = useDispatch()
                   color: white;
                   display: flex;
                   align-items: center;
+                  padding-left: 12px;
                   text-decoration: none;
                   border: #020008;
                   border-radius: 6px;
@@ -271,6 +279,9 @@ const dispatch = useDispatch()
                     @media (min-width: 640px) {
                       display: block;
                     }
+                    @media (max-width: 979px) {
+                      display: none;
+                    }
                   `}
                 >
                   Albums
@@ -283,6 +294,7 @@ const dispatch = useDispatch()
                 height: 55px;
                 display: flex;
                 align-items: center;
+                padding-left: 12px;
                 border: 2px solid black;
                 background-color: transparent;
                 transition: 2sec ease;
@@ -333,6 +345,9 @@ const dispatch = useDispatch()
                     @media (min-width: 640px) {
                       display: block;
                     }
+                    @media (max-width: 979px) {
+                      display: none;
+                    }
                   `}
                 >
                   Genres
@@ -340,12 +355,14 @@ const dispatch = useDispatch()
               </NavLink>
             </span>
             <span
+              onClick={toggleShow}
               css={css`
                 border-radius: 10px;
                 height: 55px;
                 display: flex;
                 align-items: center;
                 border: 2px solid black;
+                padding-left: 12px;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
@@ -378,6 +395,9 @@ const dispatch = useDispatch()
                   font-size: 20px;
                   @media (min-width: 640px) {
                     display: block;
+                  }
+                  @media (max-width: 979px) {
+                    display: none;
                   }
                 `}
               >
