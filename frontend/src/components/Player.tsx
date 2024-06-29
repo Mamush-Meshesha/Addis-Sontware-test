@@ -255,7 +255,9 @@ const Player: React.FC<PlayerProps> = ({ songUrl }) => {
         css={css`
           display: flex;
           align-items: center;
-          width: 10%;
+         @media (mn-width: 320px) {
+          width: 9%
+         }
           @media (min-width: 768px) {
             width: 70%;
           }

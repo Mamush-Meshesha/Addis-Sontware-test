@@ -69,7 +69,10 @@ const dispatch = useDispatch()
           <button
             onClick={toggleMenu}
             css={css`
-              color: white;
+              background-color: transparent;
+              border: none;
+              padding: 0;
+              cursor: pointer;
             `}
           >
             <IoMenuOutline size={30} />
@@ -430,24 +433,37 @@ const dispatch = useDispatch()
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
                   border-radius: 10px;
+                  height: 55px;
+                  display: flex;
+                  align-items: center;
+                  border: 2px solid black;
+                  background-color: transparent;
+                  transition: 2sec ease;
                   &:hover,
                   &:active,
                   &:focus-within {
                     background-color: #020008;
+                    transform: scale(1.1);
                   }
                 `}
               >
                 <NavLink
                   to="/"
                   css={css`
+                    font-size: 12px;
+                    border: 3px;
+                    color: white;
                     display: flex;
-                    gap: 0.75rem;
-                    font-size: 20px;
-                    gap: 12px;
-                    border: 1px;
-                    padding: 8px 12px;
+                    gap: 10px;
+                    align-items: center;
+                    text-decoration: none;
+                    padding-left: 12px;
                     border: #020008;
                     border-radius: 6px;
+                    @media (min-width: 640px) {
+                      display: flex;
+                      gap: 0.75rem;
+                    }
                   `}
                 >
                   <svg
@@ -462,32 +478,51 @@ const dispatch = useDispatch()
                     <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
                     <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
                   </svg>
-                  <h1>Home</h1>
+                  <h1
+                    css={css`
+                      font-size: 20px;
+                    `}
+                  >
+                    Home
+                  </h1>
                 </NavLink>
               </motion.button>
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
                   border-radius: 10px;
+                  height: 55px;
+                  display: flex;
+                  align-items: center;
+                  border: 2px solid black;
+                  background-color: transparent;
+                  transition: 2sec ease;
                   &:hover,
                   &:active,
                   &:focus-within {
                     background-color: #020008;
+                    transform: scale(1.1);
                   }
                 `}
               >
                 <NavLink
                   to="/artist"
                   css={css`
+                    font-size: 12px;
+                    border: 3px;
+                    color: white;
                     display: flex;
-                    gap: 0.75rem;
-                    font-size: 20px;
-                    border: 1px;
-                    padding: 8px 12px;
+                    gap: 10px;
+                    align-items: center;
+                    text-decoration: none;
+                    padding-left: 12px;
                     border: #020008;
                     border-radius: 6px;
+                    @media (min-width: 640px) {
+                      display: flex;
+                      gap: 0.75rem;
+                    }
                   `}
-                  className="flex text-xl gap-3 border py-2 border-[#020008] px-3 rounded-md"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -511,23 +546,37 @@ const dispatch = useDispatch()
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
                   border-radius: 10px;
+                  height: 55px;
+                  display: flex;
+                  align-items: center;
+                  border: 2px solid black;
+                  background-color: transparent;
+                  transition: 2sec ease;
                   &:hover,
                   &:active,
                   &:focus-within {
                     background-color: #020008;
+                    transform: scale(1.1);
                   }
                 `}
               >
                 <NavLink
                   to="/album"
                   css={css`
+                    font-size: 12px;
+                    border: 3px;
+                    color: white;
                     display: flex;
-                    gap: 0.75rem;
-                    font-size: 20px;
-                    border: 1px;
-                    padding: 8px 12px;
+                    gap: 10px;
+                    align-items: center;
+                    text-decoration: none;
+                    padding-left: 12px;
                     border: #020008;
                     border-radius: 6px;
+                    @media (min-width: 640px) {
+                      display: flex;
+                      gap: 0.75rem;
+                    }
                   `}
                 >
                   <svg
@@ -558,23 +607,37 @@ const dispatch = useDispatch()
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
                   border-radius: 10px;
+                  height: 55px;
+                  display: flex;
+                  align-items: center;
+                  border: 2px solid black;
+                  background-color: transparent;
+                  transition: 2sec ease;
                   &:hover,
                   &:active,
                   &:focus-within {
                     background-color: #020008;
+                    transform: scale(1.1);
                   }
                 `}
               >
                 <NavLink
                   to="/genres"
                   css={css`
+                    font-size: 12px;
+                    border: 3px;
+                    color: white;
                     display: flex;
-                    gap: 0.75rem;
-                    font-size: 20px;
-                    border: 1px;
-                    padding: 8px 12px;
+                    gap: 10px;
+                    align-items: center;
+                    text-decoration: none;
+                    padding-left: 12px;
                     border: #020008;
                     border-radius: 6px;
+                    @media (min-width: 640px) {
+                      display: flex;
+                      gap: 0.75rem;
+                    }
                   `}
                 >
                   <svg
@@ -598,25 +661,25 @@ const dispatch = useDispatch()
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
+                  border-radius: 10px;
+                  height: 55px;
                   display: flex;
-                  gap: 0.75rem;
-                  font-size: 20px;
-                  border: 1px;
-                  padding: 8px 12px;
-                  border: #020008;
-                  border-radius: 6px;
-
+                  align-items: center;
+                  border: 2px solid black;
+                  background-color: transparent;
+                  transition: 2sec ease;
                   &:hover,
                   &:active,
                   &:focus-within {
                     background-color: #020008;
+                    transform: scale(1.1);
                   }
                 `}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill="white"
                   css={css`
                     width: 28px;
                     height: 28px;
@@ -628,7 +691,16 @@ const dispatch = useDispatch()
                     clipRule="evenodd"
                   />
                 </svg>
-                <AddSongButton onClick={toggleShow}>Add Song</AddSongButton>
+                <AddSongButton
+                  css={css`
+                    dispaly: hidden;
+                    font-size: 20px;
+                   color: white;
+                  `}
+                  onClick={toggleShow}
+                >
+                  Add Song
+                </AddSongButton>
               </motion.button>
             </Order>
           </div>
