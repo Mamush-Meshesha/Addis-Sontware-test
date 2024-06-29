@@ -72,8 +72,7 @@ useEffect(() => {
             justify-content: center;
           `}
         >
-          <h1>Total Artist:</h1>
-          <span>{totalGenres}</span>
+          Total Genres: {totalGenres}
         </div>
         {loading ? (
           <div
@@ -99,8 +98,7 @@ useEffect(() => {
             {error}
           </div>
         ) : (
-              <Placed>
-              
+          <Placed>
             {uniqueGenres.map((song, index: number) => (
               <Box
                 onClick={() => handleGenresName(song!.Genres)}
@@ -112,6 +110,7 @@ useEffect(() => {
                     css={css`
                       font-size: 24px;
                       text-transform: capitalize;
+                      color: white;
                     `}
                   >
                     {song!.Genres}
@@ -221,11 +220,12 @@ useEffect(() => {
             css={css`
               height: 50px;
               border: 1px solid black;
+              background-color: #000;
               width: 100px;
               color: white;
               border-radius: 50%;
               :hover {
-                background-color: green;
+                background-color: #3a3c42;
               }
             `}
             onClick={() => handlePagination(page - 1)}
@@ -247,11 +247,12 @@ useEffect(() => {
             css={css`
               height: 50px;
               border: 1px solid black;
+              background-color: #000;
               width: 100px;
               color: white;
               border-radius: 50%;
               :hover {
-                background-color: green;
+                background-color: #3a3c42;
               }
             `}
             onClick={() => handlePagination(page + 1)}

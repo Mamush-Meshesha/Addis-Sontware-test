@@ -7,16 +7,16 @@ const Head = styled.div`
   display: grid;
   color: white;
   text-transform: capitalize;
+  grid-template-columns: repeat(5, 1fr);
 
   @media (min-width: 320px) {
     width: 100%;
     padding: 10px 0;
-    font-size: 10px;
-    grid-template-columns: repeat(5, 1fr);
+    font-size: 6px;
   }
 
   @media (min-width: 360px) {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   @media (min-width: 640px) {
@@ -62,49 +62,43 @@ const Inner = styled.div`
 `;
 const EachSong = styled.span`
   width: 100%;
-
-    @media (min-width: 320px) {
+  @media (min-width: 320px) {
     width: 100%;
     display: grid;
-    font-size: 10px;
     white-space: nowrap;
     grid-template-columns: repeat(5, 1fr);
   }
   @media (min-width: 360px) {
     width: 100%;
     display: grid;
-    font-size: 10px;
+    font-size: 6px;
     grid-template-columns: repeat(5, 1fr);
   }
 
   @media (min-width: 640px) {
     display: grid;
+    font-size: 9px;
     grid-template-columns: repeat(5, 1fr);
-    font-size: 10px;
   }
 
   @media (min-width: 768px) {
+    font-size: 9px;
     grid-template-columns: repeat(5, 1fr);
-    font-size: 10px;
   }
 
   @media (min-width: 884px) {
     grid-template-columns: repeat(5, 1fr);
-    font-size: 12px;
   }
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(5, 1fr);
-    font-size: 12px;
   }
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(5, 1fr);
-    font-size: 12px;
   }
   @media (min-width: 1594) {
     grid-template-columns: repeat(5, 1fr);
-    font-size: 12px;
   }
 `;
 export { Song, Head, Placed, Inner, EachSong };

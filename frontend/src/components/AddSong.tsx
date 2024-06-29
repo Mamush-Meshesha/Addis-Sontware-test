@@ -129,9 +129,9 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
           >
             <h1
               css={css`
-                font-size: 1.25rem /* 24px */;
+                font-size: 1rem /* 24px */;
                 @media (min-width: 768px) {
-                  font-size: 1.5rem /* 24px */;
+                  font-size: 1.25rem /* 24px */;
                   line-height: 2rem /* 32px */;
                 }
               `}
@@ -170,6 +170,7 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
                   padding-left: 12px;
                   outline: 2px solid transparent;
                   border-radius: 6px;
+                  width: 78%;
                 `}
               />
               {errors.title && (
@@ -196,6 +197,7 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
                   padding-left: 12px;
                   outline: 2px solid transparent;
                   border-radius: 6px;
+                  width: 78%;
                 `}
               />
               {errors.album && (
@@ -222,6 +224,7 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
                   padding-left: 12px;
                   outline: 2px solid transparent;
                   border-radius: 6px;
+                  width: 78%;
                 `}
               />
               {errors.genres && (
@@ -248,6 +251,7 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
                   padding-left: 12px;
                   outline: 2px solid transparent;
                   border-radius: 6px;
+                  width: 78%;
                 `}
               />
               {errors.artist && (
@@ -279,6 +283,7 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
                 padding-left: 12px;
                 outline: 2px solid transparent;
                 border-radius: 6px;
+                width: 78%;
               `}
             />
             {errors.duration && (
@@ -340,7 +345,9 @@ const Addsong: React.FC<AddsongProps> = ({ close }) => {
               </span>
               <input
                 type="file"
-                className="hidden"
+                css={css`
+                  display: none;
+                `}
                 accept="audio/*"
                 onChange={handleFileChange}
               />

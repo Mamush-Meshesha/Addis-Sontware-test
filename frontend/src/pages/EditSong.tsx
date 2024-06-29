@@ -110,15 +110,18 @@ const Editsong: React.FC = () => {
               }
             `}
           >
-            <h1>Would you like to update a song?</h1>
+            <h1
+              css={css`
+                font-size: 1rem /* 24px */;
+                @media (min-width: 768px) {
+                  font-size: 1.25rem /* 24px */;
+                  line-height: 2rem /* 32px */;
+                `}
+            >
+              Would you like to update a song?
+            </h1>
           </div>
-          <div
-            css={css`
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: 8px;
-            `}
-          >
+          <div>
             <Grid>
               <div>
                 <input
@@ -135,6 +138,7 @@ const Editsong: React.FC = () => {
                     outline-offset: 2px;
                     color: black;
                     border-radius: 6px;
+                    width: 78%;
                   `}
                 />
                 {errors.Title && (
@@ -162,6 +166,7 @@ const Editsong: React.FC = () => {
                     outline-offset: 2px;
                     color: black;
                     border-radius: 6px;
+                    width: 78%;
                   `}
                 />
                 {errors.Album && (
@@ -189,6 +194,7 @@ const Editsong: React.FC = () => {
                     outline-offset: 2px;
                     color: black;
                     border-radius: 6px;
+                    width: 78%;
                   `}
                 />
                 {errors.Genres && (
@@ -216,7 +222,7 @@ const Editsong: React.FC = () => {
                     outline-offset: 2px;
                     color: black;
                     border-radius: 6px;
-                    width: 100%;
+                    width: 78%;
                   `}
                 />
                 {errors.Artist && (
@@ -252,7 +258,7 @@ const Editsong: React.FC = () => {
                 outline-offset: 2px;
                 color: black;
                 border-radius: 6px;
-                width: 87%;
+                width: 85%;
               `}
             />
             {errors.Duration && (
@@ -314,7 +320,9 @@ const Editsong: React.FC = () => {
               <input
                 onChange={handleFileChange}
                 type="file"
-                className="hidden"
+                css={css`
+                  display: none;
+                `}
                 accept="audio/*"
               />
             </label>

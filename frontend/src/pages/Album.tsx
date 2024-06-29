@@ -65,8 +65,7 @@ useEffect(() => {
             justify-content: center;
           `}
         >
-          <h1>Total Album:</h1>
-          <span>{totalAlbum}</span>
+          Total Albums: {totalAlbum}
         </div>
         {loading ? (
           <div
@@ -105,6 +104,7 @@ useEffect(() => {
                     css={css`
                       font-size: 24px;
                       text-transform: capitalize;
+                      color: white;
                     `}
                   >
                     {song!.Album}
@@ -214,11 +214,12 @@ useEffect(() => {
             css={css`
               height: 50px;
               border: 1px solid black;
+              background-color: #000;
               width: 100px;
               color: white;
               border-radius: 50%;
               :hover {
-                background-color: green;
+                background-color: #3a3c42;
               }
             `}
             onClick={() => handlePagination(page - 1)}
@@ -240,11 +241,12 @@ useEffect(() => {
             css={css`
               height: 50px;
               border: 1px solid black;
+              background-color: #000;
               width: 100px;
               color: white;
               border-radius: 50%;
               :hover {
-                background-color: green;
+                background-color: #3a3c42;
               }
             `}
             onClick={() => handlePagination(page + 1)}

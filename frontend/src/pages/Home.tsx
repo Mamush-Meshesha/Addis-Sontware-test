@@ -157,7 +157,6 @@ useEffect(() => {
                     background-color: #020008;
                     height: 50px;
                     width: 7rem;
-
                     color: white;
                     border-top-right-radius: 2rem;
                     border-bottom-right-radius: 2rem;
@@ -184,8 +183,13 @@ useEffect(() => {
         <div
           css={css`
             padding: 0 40px;
-            
-      
+            @media (min-width: 320px) {
+              margin-top: 90px;
+            }
+            @media (min-width: 360px) {
+              margin-top: 90px;
+            }
+
             @media (min-width: 768px) {
               margin-top: 190px;
             }
@@ -209,18 +213,10 @@ useEffect(() => {
                 color: white;
               `}
             >
-              <h1
-                css={css`
-                  font-size: 20px;
-                `}
-              >
-                Total song:
-              </h1>
-              <span>{totalSong}</span>
+              Total songs: {totalSong}
             </div>
             <div>
-              <Head
-              >
+              <Head>
                 <h1>Title</h1>
                 <h1>artist</h1>
                 <h1>genres</h1>
@@ -317,6 +313,12 @@ useEffect(() => {
                                   `}
                                 >
                                   <button
+                                    css={css`
+                                      background-color: transparent;
+                                      border: none;
+                                      padding: 0;
+                                      cursor: pointer;
+                                    `}
                                     onClick={() => handleSongSelect(song.file)}
                                   >
                                     <FaPlay
@@ -326,7 +328,15 @@ useEffect(() => {
                                       `}
                                     />
                                   </button>
-                                  <button onClick={showHandleUpdate}>
+                                  <button
+                                    css={css`
+                                      background-color: transparent;
+                                      border: none;
+                                      padding: 0;
+                                      cursor: pointer;
+                                    `}
+                                    onClick={showHandleUpdate}
+                                  >
                                     <HiOutlineDotsHorizontal
                                       css={css`
                                         font-size: 20px;
@@ -384,7 +394,8 @@ useEffect(() => {
                                         border-radius: 8px;
                                         padding: 0 12px;
                                         height: 44px;
-
+                                        background-color: transparent;
+                                        color: white;
                                         transition: transform 0.3s ease;
                                         :active {
                                           transform: scale(1.1);
@@ -398,11 +409,7 @@ useEffect(() => {
                                           align-items: center;
                                         `}
                                       >
-                                        <FiEdit
-                                          css={css`
-                                            color: green;
-                                          `}
-                                        />
+                                        <FiEdit css={css``} />
                                         Edit
                                       </div>
                                     </button>
@@ -412,6 +419,8 @@ useEffect(() => {
                                       css={css`
                                         border: 1px solid #3a3c42;
                                         border-radius: 8px;
+                                        background-color: transparent;
+                                        color: white;
                                         padding: 0 12px;
                                         height: 44px;
                                         transition: transform 0.3s ease;

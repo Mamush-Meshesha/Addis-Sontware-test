@@ -77,29 +77,33 @@ const Pad = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  gap: 12px;
+  gap: 20px;
   padding: 0 20px;
-
   @media (min-width: 320px) {
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
   @media (min-width: 360px) {
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
   @media (min-width: 412px) {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
   }
   @media (min-width: 640px) {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: columns;
   }
 
   @media (min-width: 768px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: columns;
   }
 
   @media (min-width: 884px) {

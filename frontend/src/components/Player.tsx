@@ -154,23 +154,30 @@ const Player: React.FC<PlayerProps> = ({ songUrl }) => {
 
       <button
         css={css`
-          font-size: 1.5rem;
-          @media (min-width: 768px) {
-            font-size: 1.5rem /* 24px */;
-            line-height: 2rem /* 32px */;
-          }
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
         `}
         onClick={backThirthy}
       >
         <FaStepBackward
           css={css`
-            background-color: transparent;
             color: #12be24;
-            font-size: 18px;
+            padding: 0;
+            font-size: 20px;
           `}
         />
       </button>
-      <button onClick={togglePlay}>
+      <button
+        css={css`
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+        `}
+        onClick={togglePlay}
+      >
         {isPlaying ? (
           <IoPauseCircleOutline
             css={css`
@@ -189,22 +196,20 @@ const Player: React.FC<PlayerProps> = ({ songUrl }) => {
       </button>
       <button
         css={css`
-          font-size: 0.75rem;
-          @media (min-width: 768px) {
-            font-size: 1.5rem /* 24px */;
-            line-height: 2rem /* 32px */;
-          }
+          background-color: transparent;
+          border: none;
+          padding: 0;
+         cursor: pointer;
         `}
         onClick={forwardThirthy}
       >
         <FaForwardStep
           css={css`
             color: #12be24;
-            font-size: 18px;
+            font-size: 20px;
           `}
         />
       </button>
-     
 
       <div
         css={css`
@@ -231,7 +236,7 @@ const Player: React.FC<PlayerProps> = ({ songUrl }) => {
           type="range"
           css={css`
             width: 100%;
-            `}
+          `}
           defaultValue="0"
           onChange={changeRange}
         />
