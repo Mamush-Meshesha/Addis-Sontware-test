@@ -13,11 +13,11 @@ import { Container, Players } from "../styled/pages/HomeStyle";
 import Player from "../components/Player";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ClipLoader } from "react-spinners";
-import { CiPlay1 } from "react-icons/ci";
 import { RootState, AppDispatch } from "../store"; 
 import { css } from "@emotion/react";
 import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
+import { FaPlay } from "react-icons/fa6";
 
 interface songDetail {
   _id: string;
@@ -210,6 +210,37 @@ const navigate = useNavigate()
                               align-items: center;
                               padding: 0 24px;
                               opacity: 0.7;
+                              position: absolute;
+                              width: 97%;
+                              height: 80px;
+                              background-color: #4d4e4c;
+                              border-bottom: 1px;
+                              display: flex;
+                              align-items: center;
+                              padding: 0 24px;
+                              opacity: 0.9;
+
+                              @media (min-width: 320px) {
+                                width: 85%;
+                              }
+                              @media (min-width: 451px) {
+                                width: 89%;
+                              }
+                              @media (min-width: 640px) {
+                                width: 92%;
+                              }
+                              @media (min-width: 768px) {
+                                width: 94%;
+                              }
+                              @media (min-width: 1110px) {
+                                width: 95%;
+                              }
+                              @media (min-width: 1500px) {
+                                width: 96%;
+                              }
+                              @media (min-width: 1510px) {
+                                width: 96.5%;
+                              }
                             `}
                           >
                             <div
@@ -220,18 +251,33 @@ const navigate = useNavigate()
                               `}
                             >
                               <button
+                                css={css`
+                                  background-color: transparent;
+                                  border: none;
+                                  padding: 0;
+                                  cursor: pointer;
+                                `}
                                 onClick={() =>
                                   // @ts-expect-error-error
                                   handleSongSelect(song.file)
                                 }
                               >
-                                <CiPlay1
+                                <FaPlay
                                   css={css`
                                     font-size: 20px;
+                                    color: green;
                                   `}
                                 />
                               </button>
-                              <button onClick={showHandleUpdate}>
+                              <button
+                                css={css`
+                                  background-color: transparent;
+                                  border: none;
+                                  padding: 0;
+                                  cursor: pointer;
+                                `}
+                                onClick={showHandleUpdate}
+                              >
                                 <HiOutlineDotsHorizontal
                                   css={css`
                                     font-size: 20px;
