@@ -13,7 +13,6 @@ import { RootState, AppDispatch } from "../store";
 import { css } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
-import { CiDark } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ClipLoader } from "react-spinners";
@@ -161,11 +160,6 @@ const Home: React.FC = () => {
                   color: #999; /* Placeholder text color */
                   opacity: 1; /* Ensure placeholder is visible */
                 }
-              `}
-            />
-            <CiDark
-              css={css`
-                font-size: 36px;
               `}
             />
           </div>
