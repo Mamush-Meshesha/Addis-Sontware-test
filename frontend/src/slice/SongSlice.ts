@@ -22,7 +22,7 @@ interface SongUpload {
   file: File | null;
 }
 
-interface SongState {
+export interface SongState {
   uploadedFile: File | null;
   isLoading: boolean;
   song: Song[];

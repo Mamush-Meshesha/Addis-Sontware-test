@@ -5,7 +5,7 @@ const Song = styled.div`
 `;
 const Head = styled.div`
   display: grid;
-  color: white;
+  color: #4A4A4A;
   text-transform: capitalize;
   grid-template-columns: repeat(5, 1fr);
 
@@ -83,6 +83,7 @@ const EachSong = styled.span`
 
   @media (min-width: 768px) {
     font-size: 9px;
+    font-weight: 400;
     grid-template-columns: repeat(5, 1fr);
   }
 

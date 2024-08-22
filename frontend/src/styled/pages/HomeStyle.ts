@@ -1,28 +1,26 @@
 import styled from "@emotion/styled";
 
 const Container = styled.div`
-  background-color: #3a3c42;
+  background-color: #fff;
   min-height: 100vh;
-
+  color: black;
   overflow-x: hidden;
   @media (min-width: 640px) {
     max-width: 100%;
   }
 
     @media (min-width: 768px) {
-    width: 80%;
-    margin-left: 20%;
+    width: 90%;
+    margin-left: 10%;
   }
 
   @media (min-width: 884px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
 
   @media (min-width: 1024px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
 
   @media (min-width: 1200px) {
     max-width: 80%
@@ -30,25 +28,21 @@ const Container = styled.div`
   }
 
   @media (min-width: 1280px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
 
   @media (min-width: 1536px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
      @media (min-width: 1986px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
      @media (min-width: 2300px) {
-    max-width: 80%;
-    margin-left: 20%;
-  }
+    max-width: 85%;
+    margin-left: 15%;  }
 `;
 const EditContainer = styled.div`
-  background-color: #3a3c42;
+  background-color: #fff;
   min-height: 97vh;
   width: 100vw;
   display:flex;

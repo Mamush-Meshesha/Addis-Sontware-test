@@ -1,13 +1,19 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Player from "../components/Player";
-import { fetchSong, fetchTotalSongRequest, setIsPlaying, setSelectedSongUrl } from "../slice/SongSlice";
-import { Container, Players } from "../styled/pages/HomeStyle";
-import { RootState, AppDispatch } from "../store"; 
+import {
+  fetchSong,
+  fetchTotalSongRequest,
+  setIsPlaying,
+  setSelectedSongUrl,
+} from "../slice/SongSlice";
+import { Container } from "../styled/pages/HomeStyle";
+import { RootState, AppDispatch } from "../store";
 import { css } from "@emotion/react";
 import { useNavigate } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
+import { CiDark } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ClipLoader } from "react-spinners";
@@ -17,7 +23,6 @@ import { EachSong, Head } from "../styled/components/Song";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 interface songDetail {
   _id: string;
   Title: string;
@@ -26,42 +31,39 @@ interface songDetail {
   Album: string;
   Duration: string;
   file: File | null;
-
 }
 
 const Home: React.FC = () => {
-  
   const songs = useSelector((state: RootState) => state.song.song || []);
- const totalSong = useSelector((state: RootState) => state.song.total)
+  const totalSong = useSelector((state: RootState) => state.song.total);
   const selectedSongUrl = useSelector(
     (state: RootState) => state.song.selectedSongUrl
   );
   const dispatch = useDispatch<AppDispatch>();
-  const loading = useSelector((state: RootState) => state.song.isLoading)
-  const error = useSelector((state:RootState) => state.song.error)
+  const loading = useSelector((state: RootState) => state.song.isLoading);
+  const error = useSelector((state: RootState) => state.song.error);
   const [showPlayer, setShowPlayer] = useState(false);
- const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
-   const [pageSize] = useState(5);
-useEffect(() => {
-  console.log("Dispatching fetchSongs");
-  dispatch(fetchSong({ searchQuery: searchTerm, page, pageSize }));
-}, [dispatch, searchTerm, page, pageSize]);
+  const [pageSize] = useState(5);
+  useEffect(() => {
+    console.log("Dispatching fetchSongs");
+    dispatch(fetchSong({ searchQuery: searchTerm, page, pageSize }));
+  }, [dispatch, searchTerm, page, pageSize]);
 
   useEffect(() => {
-    dispatch(fetchTotalSongRequest())
-  },[dispatch])
-  const handleSearch = () => {
-    setPage(1);
-    dispatch(fetchSong({ searchQuery: searchTerm, page: 1, pageSize }));
-  };
+    dispatch(fetchTotalSongRequest());
+  }, [dispatch]);
+  // const handleSearch = () => {
+  //   setPage(1);
+  //   dispatch(fetchSong({ searchQuery: searchTerm, page: 1, pageSize }));
+  // };
 
-  const handleSongSelect = (file: File | null ) => {
+  const handleSongSelect = (file: File | null) => {
     console.log("Song selected:", file);
     dispatch(setSelectedSongUrl(file));
     setShowPlayer(true);
-      dispatch(setIsPlaying(true));
-     
+    dispatch(setIsPlaying(true));
   };
   const [isHovered, setIsHovered] = useState<boolean[]>(
     new Array(songs.length).fill(false)
@@ -97,120 +99,109 @@ useEffect(() => {
     if (window.confirm("are you sure you want to delete this song?")) {
       dispatch(removeSongRequest(id));
     }
-     toast.success("successfully deleted the song");
-   
+    toast.success("successfully deleted the song");
   };
-   const handlePagination = (newPage: number) => {
-     setPage(newPage);
-     dispatch(
-       fetchSong({ searchQuery: searchTerm, page: newPage, pageSize })
-     );
-   };
-   
+  const handlePagination = (newPage: number) => {
+    setPage(newPage);
+    dispatch(fetchSong({ searchQuery: searchTerm, page: newPage, pageSize }));
+  };
+
   return (
     <div>
       <Container>
         <div
           css={css`
-            position: fixed;
             z-index: 30;
             top: 0;
             width: 100%;
+            background-color: #e3f2fd;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers the content horizontally */
           `}
         >
-          <Players>
-            <div
+          <div
+            css={css`
+              width: 80%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              height: 100%;
+              @media (max-width: 767px) {
+                display: none;
+              }
+            `}
+          >
+            <input
+              type="search"
+              placeholder="Search any song"
+              onChange={(e) => setSearchTerm(e.target.value)}
               css={css`
-                width: 80%;
-                display: flex;
-                position: relative;
-                padding: 60px;
+                width: 100%;
+                max-width: 600px;
+                height: 40px; /* Slightly increased height for better appearance */
+                border-radius: 8px;
+                padding-left: 25px;
+                border: 2px solid #ccc; /* Initial border color */
+                transition: all 0.3s ease; /* Smooth transition for focus effects */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle initial shadow */
 
-                @media (max-width: 767px) {
-                  display: none;
+                &:focus {
+                  border-color: #3f51b5; /* Change border color on focus */
+                  box-shadow: 0 0 10px #3f51b5, 0 2px 10px rgba(0, 0, 0, 0.2); /* Glowing effect */
+                  outline: none; /* Remove default outline */
+                }
+
+                &:hover {
+                  border-color: #3f51b5; /* Optional: Change border color on hover */
+                }
+
+                &::placeholder {
+                  color: #999; /* Placeholder text color */
+                  opacity: 1; /* Ensure placeholder is visible */
                 }
               `}
-            >
-              <input
-                type="search"
-                placeholder="Search any song"
-                onChange={(e) => setSearchTerm(e.target.value)}
-                css={css`
-                  width: 100%;
-                  height: 50px;
-                  border-radius: 2rem;
-                  padding-left: 25px;
-                `}
-              />
-              <div
-                css={css`
-                  padding: 60px;
-                  display: flex;
-                  position: absolute;
-                  right: 0;
-                  bottom: 0;
-                `}
-              >
-                <button
-                  onClick={handleSearch}
-                  css={css`
-                    background-color: #020008;
-                    height: 50px;
-                    width: 7rem;
-                    color: white;
-                    border-top-right-radius: 2rem;
-                    border-bottom-right-radius: 2rem;
-                    align-items: center;
-                    font-size: 20px;
-                    padding-left: 0.5rem;
-                    :hover {
-                      background-color: green;
-                    }
-                  `}
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-            <div>
-              {showPlayer && (
-                // @ts-expect-error-error
-                <Player songUrl={selectedSongUrl} />
-              )}
-            </div>
-          </Players>
+            />
+            <CiDark
+              css={css`
+                font-size: 36px;
+              `}
+            />
+          </div>
         </div>
+
         <div
           css={css`
-            padding: 0 40px;
-            @media (min-width: 320px) {
-              margin-top: 90px;
-            }
-            @media (min-width: 360px) {
-              margin-top: 90px;
-            }
+            padding: 0 10px;
+            // @media (min-width: 320px) {
+            //   margin-top: 10px;
+            // }
+            // @media (min-width: 360px) {
+            //   margin-top: 90px;
+            // }
 
-            @media (min-width: 768px) {
-              margin-top: 190px;
-            }
-            @media (min-width: 1280px) {
-              margin-top: 200px;
-            }
-            @media (min-width: 1480px) {
-              margin-top: 290px;
-            }
+            // @media (min-width: 768px) {
+            //   margin-top: 190px;
+            // }
+            // @media (min-width: 1280px) {
+            //   margin-top: 200px;
+            // }
+            // @media (min-width: 1480px) {
+            //   margin-top: 290px;
+            // }
           `}
         >
           <div
             css={css`
               z-index: 30;
+              padding: 15px;
             `}
           >
             <div
               css={css`
                 display: flex;
                 gap: 16px;
-                color: white;
               `}
             >
               Total songs: {totalSong}
@@ -226,7 +217,6 @@ useEffect(() => {
 
               <hr
                 css={css`
-                  color: #39b298;
                   background-color: secondary;
                   overflow: hidden;
                   position: relative;
@@ -235,7 +225,7 @@ useEffect(() => {
 
               <div
                 css={css`
-                  color: white;
+                  color: #4a4a4a;
                   padding-bottom: 30px;
                 `}
               >
@@ -352,7 +342,7 @@ useEffect(() => {
                                       position: absolute;
                                       top: 0;
                                       margin-top: 79px;
-                                      background-color: #000;
+                                      background-color: #fff;
                                       width: 100%;
                                       right: 0;
                                       border-radius: 8px;
@@ -394,8 +384,8 @@ useEffect(() => {
                                         border-radius: 8px;
                                         padding: 0 12px;
                                         height: 44px;
-                                        background-color: transparent;
-                                        color: white;
+                                        background-color: #fff;
+                                        color: #4a4a4a;
                                         transition: transform 0.3s ease;
                                         :active {
                                           transform: scale(1.1);
@@ -420,7 +410,7 @@ useEffect(() => {
                                         border: 1px solid #3a3c42;
                                         border-radius: 8px;
                                         background-color: transparent;
-                                        color: white;
+                                        color: #4a4a4a;
                                         padding: 0 12px;
                                         height: 44px;
                                         transition: transform 0.3s ease;
@@ -565,84 +555,97 @@ useEffect(() => {
               {/* padination */}
               <div
                 css={css`
+
                       @media (min-width: 320px) {
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
+                    flex-direction: column;
+                    position: absolute;
+                    // bottom: 10px;
                     z-index: 50;
                   }
                   @
                   @media (min-width: 360px) {
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 10%;
+                    position: absolute;
+                    bottom: 10px;
+                    // padding: 0 10%;
                     z-index: 50;
                   }
                   @media (min-width: 428px) {
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 10%;
+                    position: absolute;
+                    bottom: 10px;
+                    // padding: 0 10%;
                     z-index: 50;
                   }
                   @media (min-width: 768px) {
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 20%;
+                    position: absolute;
+                    bottom: 10px;
+                    // padding: 0 20%;
                     z-index: 50;
                   }
                   @media (min-width: 884px) {
+                  width: 80%;
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 20%;
+                    position: absolute;
+                    bottom: 10px;
+                    // padding: 0 20%;
                     z-index: 50;
+                     justify-content: space-between;
                   }
                   @media (min-width: 1280px) {
+                  width: 80%;
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 30%;
+                    flex-direction: row;
+                    position: absolute;
+                    bottom: 10px;
+                    // padding: 0 30%;
                     z-index: 50;
+                     justify-content: space-between;
                   }
                   @media (min-width: 1440px) {
+                  
                     display: flex;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0 25%;
+                    bottom: 10px;
+                    // padding: 0 25%;
+                    justify-content: space-between;
                   }
                 `}
               >
+                <div css={css``}>
+                  {showPlayer && (
+                    // @ts-expect-error-error
+                    <Player songUrl={selectedSongUrl} />
+                  )}
+                </div>
                 <div
                   css={css`
                     display: flex;
+                    align-items: center;
                     gap: 30px;
                   `}
                 >
                   <button
                     css={css`
-                      border: 1px solid black;
-                      color: white;
-                      border-radius: 50%;
+                      border: 1px solid;
+                      color: #4a4a4a;
+                      border-radius: 8px;
                       :hover {
                         background-color: green;
+                        color: white;
                       }
                       @media (min-width: 320px) {
-                        height: 30px;
+                        height: 20px;
                         width: 90px;
-                        background-color: black;
                       }
                       @media (min-width: 360px) {
-                        height: 30px;
-                        width: 90px;
-                        background-color: black;
+                        height: 20px;
+                        width: 70px;
                       }
                       @media (min-width: 768px) {
-                        height: 50px;
-                        width: 100px;
-                        background-color: transparent;
+                        height: 20px;
+                        width: 70px;
                       }
                     `}
                     onClick={() => handlePagination(page - 1)}
@@ -654,34 +657,35 @@ useEffect(() => {
                     css={css`
                       display: flex;
                       align-items: center;
-                      color: white;
-                      font-size: 24px;
+                      color: #4a4a4a;
+                      font-size: 20px;
+                      @media (min-width: 768px) {
+                        font-size: 15px;
+                      }
                     `}
                   >
                     {page}
                   </span>
                   <button
                     css={css`
-                      border: 1px solid black;
-                      color: white;
-                      border-radius: 50%;
+                      border: 1px solid;
+                      color: #4a4a4a;
+                      border-radius: 8px;
                       :hover {
                         background-color: green;
+                        color: white;
                       }
                       @media (min-width: 320px) {
-                        height: 30px;
+                        height: 20px;
                         width: 90px;
-                        background-color: black;
                       }
                       @media (min-width: 360px) {
-                        height: 30px;
-                        width: 90px;
-                        background-color: black;
+                        height: 20px;
+                        width: 70px;
                       }
                       @media (min-width: 768px) {
-                        height: 50px;
-                        width: 100px;
-                        background-color: transparent;
+                        height: 20px;
+                        width: 70px;
                       }
                     `}
                     onClick={() => handlePagination(page + 1)}

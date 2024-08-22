@@ -13,7 +13,7 @@ const Add = styled.div`
 `;
 const Pad = styled.div`
   border-radius: 8px;
-  background-color: #3a3c42;
+  background-color: #e3f2fd;
   position: relative;
   border: 2px solid green;
   @media (min-width: 320px) {

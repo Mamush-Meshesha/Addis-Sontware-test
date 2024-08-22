@@ -4,7 +4,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import Addsong from "./AddSong";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Order, AddSongButton } from "../styled/components/Header";
+import { Order, AddSongButton, SmallOrder } from "../styled/components/Header";
 import { css } from "@emotion/react";
 import { useDispatch } from "react-redux";
 import { fetchSong } from "../slice/SongSlice";
@@ -13,15 +13,15 @@ const Header: React.FC = () => {
   const [showAdd, setShowAdd] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
-   const [searchTerm, ] = useState("");
-   const [page, ] = useState(1);
-   const [pageSize] = useState(5);
-const dispatch = useDispatch()
+  const [searchTerm] = useState("");
+  const [page] = useState(1);
+  const [pageSize] = useState(5);
+  const dispatch = useDispatch();
   const toggleShow = () => {
     setShowAdd(!showAdd);
     setTimeout(() => {
       dispatch(fetchSong({ searchQuery: searchTerm, page, pageSize }));
-    },3000)
+    }, 3000);
   };
 
   const toggleMenu = () => {
@@ -46,12 +46,15 @@ const dispatch = useDispatch()
       <div
         css={css`
           z-index: 40;
-          background-color: #3a3c42;
           position: fixed;
-          border-radius: 6px;
           top: 0;
+
           @media (min-width: 768px) {
-            width: 18%;
+            width: 15%;
+            height: 100%;
+            border-radius: 6px;
+            background-color: #e3f2fd;
+            border-right: 2px solid white;
           }
         `}
       >
@@ -83,7 +86,7 @@ const dispatch = useDispatch()
         <div
           css={css`
             display: none;
-            color: white;
+
             @media (min-width: 768px) {
               display: block;
             }
@@ -92,17 +95,18 @@ const dispatch = useDispatch()
           <Order>
             <span
               css={css`
-                border-radius: 10px;
-                height: 55px;
+                height: 45px;
                 display: flex;
+                border-radius: 10px;
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
                 align-items: center;
-                border: 2px solid black;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
                 &:active,
                 &:focus-within {
-                  background-color: #020008;
+                  background-color: #fff;
                   transform: scale(1.1);
                 }
               `}
@@ -111,9 +115,8 @@ const dispatch = useDispatch()
                 to="/"
                 css={css`
                   font-size: 12px;
-                  border: 3px;
-                  color: white;
                   display: flex;
+
                   align-items: center;
                   text-decoration: none;
                   padding-left: 12px;
@@ -130,8 +133,8 @@ const dispatch = useDispatch()
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   css={css`
-                    width: 28px;
-                    height: 28px;
+                    width: 20px;
+                    height: 20px;
                   `}
                 >
                   <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
@@ -139,7 +142,7 @@ const dispatch = useDispatch()
                 </svg>
                 <h1
                   css={css`
-                    font-size: 20px;
+                    font-size: 18px;
                     dispaly: hidden;
                     @media (min-width: 640px) {
                       display: block;
@@ -156,17 +159,19 @@ const dispatch = useDispatch()
             <span
               css={css`
                 border-radius: 10px;
-                height: 55px;
+                height: 45px;
                 display: flex;
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
                 align-items: center;
-                border: 2px solid black;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
                 &:active,
                 &:focus-within {
-                  background-color: #020008;
+                  background-color: #fff;
                   transform: scale(1.1);
+                  color: black;
                 }
               `}
             >
@@ -175,12 +180,10 @@ const dispatch = useDispatch()
                 css={css`
                   font-size: 12px;
                   border: 1px;
-                  color: white;
                   display: flex;
                   align-items: center;
                   text-decoration: none;
                   padding-left: 12px;
-                  border: #020008;
                   border-radius: 6px;
                   @media (min-width: 640px) {
                     display: flex;
@@ -193,8 +196,8 @@ const dispatch = useDispatch()
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   css={css`
-                    width: 28px;
-                    height: 28px;
+                    width: 20px;
+                    height: 20px;
                   `}
                 >
                   <path
@@ -205,7 +208,7 @@ const dispatch = useDispatch()
                 </svg>
                 <h1
                   css={css`
-                    font-size: 20px;
+                    font-size: 18px;
                     dispaly: hidden;
                     @media (min-width: 640px) {
                       display: block;
@@ -222,17 +225,19 @@ const dispatch = useDispatch()
             <span
               css={css`
                 border-radius: 10px;
-                height: 55px;
+                height: 45px;
                 display: flex;
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
                 align-items: center;
-                border: 2px solid black;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
                 &:active,
                 &:focus-within {
-                  background-color: #020008;
+                  background-color: #fff;
                   transform: scale(1.1);
+                  color: black;
                 }
               `}
             >
@@ -240,8 +245,6 @@ const dispatch = useDispatch()
                 to="/album"
                 css={css`
                   font-size: 12px;
-                  border: 1px;
-                  color: white;
                   display: flex;
                   align-items: center;
                   padding-left: 12px;
@@ -260,8 +263,8 @@ const dispatch = useDispatch()
                   height="1em"
                   viewBox="0 0 24 24"
                   css={css`
-                    width: 28px;
-                    height: 28px;
+                    width: 20px;
+                    height: 20px;
                   `}
                 >
                   <g
@@ -277,7 +280,7 @@ const dispatch = useDispatch()
                 </svg>
                 <h1
                   css={css`
-                    font-size: 20px;
+                    font-size: 18px;
                     dispaly: hidden;
                     @media (min-width: 640px) {
                       display: block;
@@ -294,18 +297,20 @@ const dispatch = useDispatch()
             <span
               css={css`
                 border-radius: 10px;
-                height: 55px;
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
+                height: 45px;
                 display: flex;
                 align-items: center;
                 padding-left: 12px;
-                border: 2px solid black;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
                 &:active,
                 &:focus-within {
-                  background-color: #020008;
+                  background-color: #fff;
                   transform: scale(1.1);
+                  color: black;
                 }
               `}
             >
@@ -313,12 +318,9 @@ const dispatch = useDispatch()
                 to="/genres"
                 css={css`
                   font-size: 12px;
-                  border: 1px;
-                  color: white;
                   display: flex;
                   align-items: center;
                   text-decoration: none;
-                  border: #020008;
                   border-radius: 6px;
                   @media (min-width: 640px) {
                     display: flex;
@@ -361,18 +363,20 @@ const dispatch = useDispatch()
               onClick={toggleShow}
               css={css`
                 border-radius: 10px;
-                height: 55px;
+                border-top: 2px solid white;
+                border-bottom: 2px solid white;
+                height: 45px;
                 display: flex;
                 align-items: center;
-                border: 2px solid black;
                 padding-left: 12px;
                 background-color: transparent;
                 transition: 2sec ease;
                 &:hover,
                 &:active,
                 &:focus-within {
-                  background-color: #020008;
+                  background-color: #fff;
                   transform: scale(1.1);
+                  color: black;
                 }
               `}
             >
@@ -396,6 +400,7 @@ const dispatch = useDispatch()
                 css={css`
                   dispaly: hidden;
                   font-size: 20px;
+                  color: #6209bf;
                   @media (min-width: 640px) {
                     display: block;
                   }
@@ -412,33 +417,32 @@ const dispatch = useDispatch()
 
         {/* Menu for small devices */}
         {isMenuOpen && (
-          <div
+          <motion.div
             ref={menuRef}
+            initial={{ y: -100 }} // Start off-screen
+            animate={{ y: 0 }} // Animate to visible position
+            exit={{ y: -100 }} // Animate back off-screen
+            transition={{
+              duration: 0.5, // Duration of the animation
+              ease: [0.4, 0.6, 0.8, 1], // Custom easing function for smoothness
+            }}
             css={css`
-              color: white;
               @media (min-width: 768px) {
                 display: none;
               }
-              background-color: #094554;
-              transform: translateX(-100%);
-              transition: transform 2s ease-in-out;
-              ${isMenuOpen &&
-              css`
-                transform: translateX(0);
-              `}
+              background-color: #e3f2fd;
             `}
           >
-            <Order>
+            <SmallOrder>
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
-                  border-radius: 10px;
                   height: 55px;
                   display: flex;
                   align-items: center;
-                  border: 2px solid black;
+                  border: none;
                   background-color: transparent;
-                  transition: 2sec ease;
+                  transition: transform 0.3s ease-in-out;
                   &:hover,
                   &:active,
                   &:focus-within {
@@ -450,16 +454,12 @@ const dispatch = useDispatch()
                 <NavLink
                   to="/"
                   css={css`
-                    font-size: 12px;
-                    border: 3px;
-                    color: white;
+                    font-size: 10px;
                     display: flex;
                     gap: 10px;
                     align-items: center;
                     text-decoration: none;
                     padding-left: 12px;
-                    border: #020008;
-                    border-radius: 6px;
                     @media (min-width: 640px) {
                       display: flex;
                       gap: 0.75rem;
@@ -490,11 +490,10 @@ const dispatch = useDispatch()
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
-                  border-radius: 10px;
                   height: 55px;
                   display: flex;
+                  border: none;
                   align-items: center;
-                  border: 2px solid black;
                   background-color: transparent;
                   transition: 2sec ease;
                   &:hover,
@@ -509,15 +508,12 @@ const dispatch = useDispatch()
                   to="/artist"
                   css={css`
                     font-size: 12px;
-                    border: 3px;
-                    color: white;
+
                     display: flex;
                     gap: 10px;
                     align-items: center;
                     text-decoration: none;
                     padding-left: 12px;
-                    border: #020008;
-                    border-radius: 6px;
                     @media (min-width: 640px) {
                       display: flex;
                       gap: 0.75rem;
@@ -545,11 +541,10 @@ const dispatch = useDispatch()
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
-                  border-radius: 10px;
                   height: 55px;
                   display: flex;
+                  border: none;
                   align-items: center;
-                  border: 2px solid black;
                   background-color: transparent;
                   transition: 2sec ease;
                   &:hover,
@@ -564,15 +559,12 @@ const dispatch = useDispatch()
                   to="/album"
                   css={css`
                     font-size: 12px;
-                    border: 3px;
-                    color: white;
                     display: flex;
                     gap: 10px;
                     align-items: center;
                     text-decoration: none;
                     padding-left: 12px;
-                    border: #020008;
-                    border-radius: 6px;
+
                     @media (min-width: 640px) {
                       display: flex;
                       gap: 0.75rem;
@@ -606,11 +598,10 @@ const dispatch = useDispatch()
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
-                  border-radius: 10px;
                   height: 55px;
+                  border: none;
                   display: flex;
                   align-items: center;
-                  border: 2px solid black;
                   background-color: transparent;
                   transition: 2sec ease;
                   &:hover,
@@ -625,15 +616,12 @@ const dispatch = useDispatch()
                   to="/genres"
                   css={css`
                     font-size: 12px;
-                    border: 3px;
-                    color: white;
+
                     display: flex;
                     gap: 10px;
                     align-items: center;
                     text-decoration: none;
                     padding-left: 12px;
-                    border: #020008;
-                    border-radius: 6px;
                     @media (min-width: 640px) {
                       display: flex;
                       gap: 0.75rem;
@@ -661,11 +649,10 @@ const dispatch = useDispatch()
               <motion.button
                 whileTap={{ margin: "2px", scale: 0.9 }}
                 css={css`
-                  border-radius: 10px;
                   height: 55px;
                   display: flex;
+                  border: none;
                   align-items: center;
-                  border: 2px solid black;
                   background-color: transparent;
                   transition: 2sec ease;
                   &:hover,
@@ -694,16 +681,17 @@ const dispatch = useDispatch()
                 <AddSongButton
                   css={css`
                     dispaly: hidden;
+                    border: none;
+
                     font-size: 20px;
-                   color: white;
                   `}
                   onClick={toggleShow}
                 >
                   Add Song
                 </AddSongButton>
               </motion.button>
-            </Order>
-          </div>
+            </SmallOrder>
+          </motion.div>
         )}
         <div>{showAdd && <Addsong close={toggleShow} />}</div>
       </div>

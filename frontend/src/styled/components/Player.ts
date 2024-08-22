@@ -2,66 +2,57 @@ import styled from "@emotion/styled";
 
 const PlayerStyle = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 9999px;
-  gap: 0.5rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  width: 100%;
-  background-image: linear-gradient(to bottom, #314447, #517076, #343a46);
-  border: 0;
-  border-color: transparent;
+  border-radius: 12px;
+  gap: 1rem;
+  padding: 1rem;
+  width: 85%;
+  background-color: #2b3a42; /* Changed background color */
+  border: 1px solid #517076;
   color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+
+  /* General styling for all screen sizes */
+  margin: 1rem 0;
+  position: relative;
+  top: 0;
 
   @media (max-width: 360px) {
-    margin-top: 0.1rem;
+    margin-top: 0.5rem;
     display: flex;
-   width: 100%;
-   position: absolute;
+    width: 100%;
+    padding: 0.5rem;
     top: 0;
   }
 
   @media (min-width: 640px) {
-    margin: 6.5rem 0rem;
-    position: absolute;
-    padding-left: 0rem;
-    top: 0;
+    margin: 1.5rem 0;
+    padding: 1rem;
   }
 
   @media (min-width: 768px) {
-    margin: 6.5rem 0rem;
-    padding-left: 0rem;
-    position: absolute;
-    top: 0;
+    margin: 2rem 0;
+    padding: 1rem 2rem;
   }
 
   @media (min-width: 884px) {
-    margin: 6.5rem 0rem;
-    position: absolute;
-    top: 0;
-    padding-left: 5rem;
+    margin: 2.5rem 0;
+    padding: 1rem 3rem;
   }
 
   @media (min-width: 1024px) {
-    margin: 13.5rem 0rem;
-    position: absolute;
-    top: 0;
-    padding-left: 5rem;
+    margin: 3rem 0;
+    padding: 1.5rem 4rem;
   }
 
   @media (min-width: 1200px) {
-    margin: 9rem 0rem;
-    position: absolute;
-    padding-left: 5rem;
-    top: 0;
+    margin: 3.5rem 0;
+    padding: 1.5rem 5rem;
   }
 
   @media (min-width: 1594px) {
-    margin: 13.5rem 0rem;
-    position: absolute;
-    top: 0;
-    padding-left: 5rem;
+    margin: 4rem 0;
+    padding: 2rem 6rem;
   }
 `;
 

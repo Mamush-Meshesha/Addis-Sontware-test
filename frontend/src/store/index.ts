@@ -11,13 +11,7 @@ const store = configureStore({
     getDefaultMiddleware().concat(sagaMiddleware)
 });
 
-// {
-//       serializableCheck: {
-//         ignoredActions: ["song/uploadSong", "song/uploadSongToCloud"],
-//         ignoredActionPaths: ["payload"],
-//         ignoredPaths: ["song.uploadedFile"],
-//       },
-//     }
+
 
 sagaMiddleware.run(rootSaga)
 

@@ -19,6 +19,14 @@ const Order = styled.div`
     height: 85%;
   }
 `;
+const SmallOrder = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  width: 100vw;
+  gap: 20px;
+  padding: 0 40px;
+`;
 
 const AddSongButton = styled.h1`
   @media (min-width: 640px) {
@@ -27,4 +35,4 @@ const AddSongButton = styled.h1`
     }
   }
 `;
-export { Headers, Order, AddSongButton };
+export { Headers, Order, AddSongButton, SmallOrder };

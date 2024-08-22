@@ -10,7 +10,7 @@ import {
   setShowPlayer,
 } from "../slice/SongSlice";
 import { EachSong, Head } from "../styled/components/Song";
-import { Container, Players } from "../styled/pages/HomeStyle";
+import { Container } from "../styled/pages/HomeStyle";
 import Player from "../components/Player";
 import { ClipLoader } from "react-spinners";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
@@ -98,42 +98,52 @@ const navigate = useNavigate()
     <Container>
       <div
         css={css`
-          position: fixed;
           z-index: 30;
           top: 0;
           width: 100%;
-        `}
-      >
-        <Players>
-          <div>
-            {showPlayer && (
-              // @ts-expect-error-error
-              <Player songUrl={selectedSongUrl} song={songs} />
-            )}
-          </div>
-        </Players>
-      </div>
-      <div
-        css={css`
-          padding: 0 40px;
-          margin-top: 100px;
-
-          @media (min-width: 768px) {
-            margin-top: 190px;
-          }
-
-              @media (min-width: 1280px) {
-            margin-top: 230px;
-          }
-            @media (min-width: 1480px) {
-              margin-top: 290px;
-            }
-          }
+          background-color: #e3f2fd;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         `}
       >
         <div
           css={css`
-            color: white;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            @media (max-width: 767px) {
+              display: none;
+            }
+          `}
+        >
+          
+        </div>
+      </div>
+      <div
+        css={css`
+          padding: 0 10px;
+          margin-top: 10px;
+
+          // @media (min-width: 768px) {
+          //   margin-top: 190px;
+          // }
+
+          //     @media (min-width: 1280px) {
+          //   margin-top: 230px;
+          // }
+          //   @media (min-width: 1480px) {
+          //     margin-top: 290px;
+          //   }
+          // }
+        `}
+      >
+        <div
+          css={css`
+            color: #4a4a4a;
           `}
         >
           Total songs: {total}
@@ -154,7 +164,7 @@ const navigate = useNavigate()
         />
         <div
           css={css`
-            color: white;
+            color: #4a4a4a;
             position: relative;
           `}
         >
@@ -189,7 +199,6 @@ const navigate = useNavigate()
                     <div>
                       <span
                         css={css`
-                          border-bottom: 1px solid #39b298;
                           display: flex;
                           gap: 9px;
                           width: 100%;
@@ -484,6 +493,20 @@ const navigate = useNavigate()
                 <div>No songs found for this artist.</div>
               )}
             </div>
+          )}
+        </div>
+        <div
+          css={css`
+            position: fixed;
+            bottom: 0;
+            width: 86%;
+            z-index: 50; /* Ensure it is above other content */
+            background-color: #fff; /* Optional: Set a background color */
+          `}
+        >
+          {showPlayer && (
+            // @ts-expect-error-error
+            <Player songUrl={selectedSongUrl} song={songs} />
           )}
         </div>
       </div>
